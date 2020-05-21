@@ -47,9 +47,15 @@ header-includes:
 
 \clearpage
 
-# Section 4
+# Section 4 {Abhishek Sinha}
+```{r }
+library(tidyverse)
+data_sec4 <- read.csv("Data/Data_Tables_Criminal_Incidents_Visualisation_Year_Ending_December_2019.txt", header = TRUE, sep = ',')
+```
 
-
+```{r}
+glimpse(data_sec4)
+```
 \clearpage
 
 # Citation examples
