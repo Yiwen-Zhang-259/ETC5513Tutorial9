@@ -60,6 +60,10 @@ crime_c <- crime %>%
   filter(Year %in% time)%>%
   group_by(Year, `Offence Division`) %>%
   rename(Rate = `Rate per 100,000 population`)
+
+crime_c %>%
+  head() %>%
+  kable(booktabs = TRUE, caption = "Cleaned data")
 ```
 
 
@@ -69,7 +73,7 @@ crime_c %>%
             y = Rate,
             group = `Offence Division`,
             )) +
-  geom_col(aes(color = `Offence Division`), fill = "white")
+  geom_col(aes(color = `Offence Division`), fill = "white") 
 ```
 
 ```{r other offences}
@@ -77,7 +81,7 @@ crime_E <- crime_c %>%
   filter(`Offence Division` == "E Justice procedures offences")
 ```
 
-```{r}
+```{r eplot, fig.cap= "Type E"}
 crime_E %>%
   ggplot(aes(x = Year,
              y = Rate)) +
