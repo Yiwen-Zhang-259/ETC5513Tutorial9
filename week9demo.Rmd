@@ -32,10 +32,24 @@ header-includes:
 
 \clearpage
 
-# Section 1
+# Section 1: Murder statistics
 
-```{r}
-read.csv("Data/crime_table.csv")
+```{r readingdata, eval = FALSE, message = FALSE}
+library(lubridate)
+library(tidyverse)
+library(ggplot2)
+library(kableExtra)
+
+dataset <- read.csv("Data/crime_table.csv")
+murder_data <- dataset %>% filter(Offence.Subgroup == "A11 Murder") %>%
+  select(ï..Year, Offence.Subgroup, Incidents.Recorded, Rate.per.100.000.population) %>%
+  rename(Year = ï..Year, Offence = Offence.Subgroup, Incidents = Incidents.Recorded, Rate = Rate.per.100.000.population)
+```
+
+```{r murdertab, eval = FALSE, message = FALSE}
+murder_data %>%
+  kable(caption = "Murder statistics in Victoria") %>%
+  kable_styling(bootstrap_options = c("striped", "bordered", "hover"))
 ```
 
 
