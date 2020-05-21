@@ -67,7 +67,7 @@ crime_c %>%
 ```
 
 
-```{r }
+```{r crimeclean}
 crime_c %>%
   ggplot(aes(x = Year,
             y = Rate,
@@ -75,6 +75,8 @@ crime_c %>%
             )) +
   geom_col(aes(color = `Offence Division`), fill = "white") 
 ```
+
+Table \@ref(tab:crimeclean)
 
 ```{r other offences}
 crime_E <- crime_c %>%
@@ -88,6 +90,7 @@ crime_E %>%
   geom_col()
 ```
 
+Figure \@ref(fig:eplot)
 
 
 \clearpage
