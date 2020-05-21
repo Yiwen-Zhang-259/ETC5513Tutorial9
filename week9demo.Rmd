@@ -29,6 +29,18 @@ header-includes:
 - \usepackage{fancyhdr}
 - \pagestyle{fancy}
 ---
+```{r setup, echo = FALSE}
+library(tidyverse)
+library(readr)
+library(lubridate)
+```
+
+```{r read data}
+crime <- read_csv(here::here("data/Data_Tables_Criminal_Incidents_Visualisation_Year_Ending_December_2019.csv"))
+```
+```{r select time period}
+time <- c("2010":"2019")
+```
 
 \clearpage
 
@@ -43,6 +55,35 @@ header-includes:
 \clearpage
 
 # Section 3 Yuheng Cui
+```{r clean data}
+crime_c <- crime %>%
+  filter(Year %in% time)%>%
+  group_by(Year, `Offence Division`) %>%
+  rename(Rate = `Rate per 100,000 population`)
+```
+
+
+```{r }
+crime_c %>%
+  ggplot(aes(x = Year,
+            y = Rate,
+            group = `Offence Division`,
+            )) +
+  geom_col(aes(color = `Offence Division`), fill = "white")
+```
+
+```{r other offences}
+crime_E <- crime_c %>%
+  filter(`Offence Division` == "E Justice procedures offences")
+```
+
+```{r}
+crime_E %>%
+  ggplot(aes(x = Year,
+             y = Rate)) +
+  geom_col()
+```
+
 
 
 \clearpage
