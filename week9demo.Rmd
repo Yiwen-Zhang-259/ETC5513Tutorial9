@@ -39,6 +39,27 @@ header-includes:
 
 # Section 2
 
+```{r readdata, include=FALSE}
+Criminal_Sec2 <- read.csv("~/5513Tutorial9/Data_Tables_Criminal_Incidents_Visualisation_Year_Ending_December_2019.csv")
+
+```
+
+```{r tableA, include=FALSE}
+Criminal_Sec2_against_person <- Criminal_Sec2 %>%
+  filter(Offence.Division == "A Crimes against the person")
+
+Criminal_Sec2_against_person %>%
+  head(10) %>%
+   kable(booktabs = TRUE, caption = "Criminal Incidents against person in December 2019")
+```
+
+```{r figureA, include=FALSE}
+ggplot(Criminal_Sec2_against_person,
+       aes(x= Offence.Subdivision, 
+           y = Incidents.Recorded, group = Offence.Subdivision, color = Offence.Subdivision)) +
+  geom_point() +
+  facet_wrap(~ Offence.Subdivision, ncol = 2)
+```
 
 \clearpage
 
