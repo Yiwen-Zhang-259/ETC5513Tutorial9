@@ -46,6 +46,11 @@ murder_data <- dataset %>% filter(Offence.Subgroup == "A11 Murder") %>%
   rename(Year = ï..Year, Offence = Offence.Subgroup, Incidents = Incidents.Recorded, Rate = Rate.per.100.000.population)
 ```
 
+This section is examing how the offence 'A11 Murder' has changed over time in Victoria from January 2010 to December 2019.
+
+Table /@ref(tab:murdertab) below shows this summarised data set with the incidents and rate per 100,000 people recorded.
+
+The data will be examined further to see if any trends emerge.
 
 
 ```{r murdertab, eval = FALSE, message = FALSE}
@@ -53,6 +58,13 @@ murder_data %>%
   kable(caption = "Murder statistics in Victoria") %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "hover"))
 ```
+
+This data is visualised in Figure /@ref(fig:murderplot).
+
+It appears that there is a slight increase in murder over time with the lowest levels recored in the earliest years of the decade and increasing towards 2019.
+
+This relationship could be the basis of a future regression analysis.
+
 
 ```{r murderplot, fig.cap = "Change in murder incidents over time", eval + FALSE, message = FALSE}
 murder_data %>%
