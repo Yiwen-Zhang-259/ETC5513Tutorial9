@@ -34,6 +34,11 @@ header-includes:
 
 # Section 1
 
+```{r}
+read.csv("Data/crime_table.csv")
+```
+
+
 
 \clearpage
 
