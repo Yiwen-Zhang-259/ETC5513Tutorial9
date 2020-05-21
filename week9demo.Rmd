@@ -46,12 +46,19 @@ murder_data <- dataset %>% filter(Offence.Subgroup == "A11 Murder") %>%
   rename(Year = ï..Year, Offence = Offence.Subgroup, Incidents = Incidents.Recorded, Rate = Rate.per.100.000.population)
 ```
 
+
+
 ```{r murdertab, eval = FALSE, message = FALSE}
 murder_data %>%
   kable(caption = "Murder statistics in Victoria") %>%
   kable_styling(bootstrap_options = c("striped", "bordered", "hover"))
 ```
 
+```{r murderplot, fig.cap = "Change in murder incidents over time", eval + FALSE, message = FALSE}
+murder_data %>%
+  ggplot(aes(x=Year, y = Incidents, group_by(Year))) +
+  geom_point()
+```
 
 
 \clearpage
