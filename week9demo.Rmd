@@ -53,7 +53,7 @@ Criminal_Sec2_against_person %>%
    kable(booktabs = TRUE, caption = "Criminal Incidents against person in December 2019")
 ```
 
-```{r figureA, include=FALSE}
+```{r figureA, fig.cap= "Trend of Criminal Incidents against person in December 2019", include=FALSE}
 ggplot(Criminal_Sec2_against_person,
        aes(x= Offence.Subdivision, 
            y = Incidents.Recorded, group = Offence.Subdivision, color = Offence.Subdivision)) +
