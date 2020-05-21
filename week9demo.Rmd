@@ -42,7 +42,7 @@ header-includes:
 
 \clearpage
 
-# Section 3
+# Section 3 Yuheng Cui
 
 
 \clearpage
